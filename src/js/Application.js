@@ -12,5 +12,15 @@ export default class Application extends EventEmitter {
     this.init();
     this.emit(Application.events.READY);
   }
-  init() {}
+  init() {
+   const animation =  anime({
+      targets: 'article',
+      translateX: 250,
+      direction: 'alternate',
+      autoplay: false,
+      easing: 'spring(1, 80, 10, 0)'
+    });
+
+    document.querySelector('article').addEventListener('click', animation.play);
+  }
 }
